@@ -19,6 +19,7 @@ before_action :require_same_student, only: [:edit, :update]
     @student = Student.new(student_params)
     if @student.save
       flash[:notice] = "You have successfully signed up"
+      session[:student_id] = @student.id
       redirect_to @student
     else
       render 'new'
