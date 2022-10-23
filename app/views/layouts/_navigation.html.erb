@@ -1,11 +1,14 @@
 
   <ul id="dropdown1" class="dropdown-content">
+
     <li><%= session_link %> </li>
     <% if logged_in? %>
       <li><%= link_to "Profile", student_path(current_user) %> </li>
     <% end %>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <% if !logged_in? %>
+      <li><%= link_to "Sign up", new_student_path %> </li>
+    <% end %>
   </ul>
   <ul id="dropdown2" class="dropdown-content">
     <li><%= session_link %> </li>
@@ -13,7 +16,9 @@
       <li><%= link_to "Profile", student_path(current_user) %> </li>
     <% end %>
     <li class="divider"></li>
-    <li><a href="#!">three</a></li>
+    <% if !logged_in? %>
+      <li><%= link_to "Sign up", new_student_path %> </li>
+    <% end %>
   </ul>
   <nav class="blue darken-4">
     <div class="container">
